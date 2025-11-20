@@ -1,0 +1,65 @@
+body {
+    margin: 0;
+    font-family: "Microsoft YaHei", sans-serif;
+    background: #fafafa;
+}
+
+header {
+    background: #d93d3d;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    margin: 0 12px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.hero {
+    background: url("https://images.unsplash.com/photo-1549692520-acc6669e2f0c") center/cover;
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.cities {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px;
+    flex-wrap: wrap;
+}
+
+.city-card, .spot-card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.city-card img, .spot-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #d93d3d;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.spot-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 40px;
+}
