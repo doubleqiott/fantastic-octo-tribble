@@ -1,14 +1,25 @@
+/* 全局 */
 body {
     margin: 0;
     font-family: "Microsoft YaHei", sans-serif;
     background: #fafafa;
+    animation: fadeIn 0.8s ease forwards;
+    opacity: 0;
 }
 
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* 顶部栏 */
 header {
     background: #d93d3d;
     color: white;
     padding: 20px;
     text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
 nav a {
@@ -16,15 +27,35 @@ nav a {
     margin: 0 12px;
     text-decoration: none;
     font-weight: bold;
+    transition: 0.3s;
 }
 
+nav a:hover {
+    opacity: 0.7;
+}
+
+/* 首页顶部大图 */
 .hero {
     background: url("https://images.unsplash.com/photo-1549692520-acc6669e2f0c") center/cover;
     color: white;
     padding: 100px 20px;
     text-align: center;
+    animation: slideUp 1s ease forwards;
+    opacity: 0;
 }
 
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+/* 城市区域 */
 .cities {
     display: flex;
     justify-content: center;
@@ -33,29 +64,71 @@ nav a {
     flex-wrap: wrap;
 }
 
-.city-card, .spot-card {
+/* 城市卡片样式 */
+.city-card,
+.spot-card {
     background: white;
     padding: 15px;
-    border-radius: 10px;
+    border-radius: 12px;
     width: 300px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: floatIn 0.9s ease both;
 }
 
-.city-card img, .spot-card img {
+.city-card:hover,
+.spot-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+}
+
+/* 卡片浮入动画 */
+@keyframes floatIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 图片统一尺寸 */
+.city-card img,
+.spot-card img {
     width: 100%;
+    height: 220px;       /* 固定高度 */
+    object-fit: cover;   /* 裁剪保证干净 */
     border-radius: 10px;
+    transition: transform 0.4s ease;
 }
 
+/* 图片悬停放大 */
+.city-card img:hover,
+.spot-card img:hover {
+    transform: scale(1.05);
+}
+
+/* 按钮样式 */
 .btn {
     display: inline-block;
     padding: 10px 15px;
-    background: #d93d3d;
+    background: linear-gradient(135deg, #d93d3d, #b82e2e);
     color: white;
-    border-radius: 5px;
+    border-radius: 6px;
     text-decoration: none;
     margin-top: 10px;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
 }
 
+.btn:hover {
+    background: linear-gradient(135deg, #ff5555, #d93d3d);
+    transform: scale(1.05);
+}
+
+/* 景点列表布局 */
 .spot-list {
     display: flex;
     flex-wrap: wrap;
